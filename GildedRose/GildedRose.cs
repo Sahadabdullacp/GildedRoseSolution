@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 namespace GildedRoseKata
 {
@@ -23,7 +23,11 @@ namespace GildedRoseKata
                 UpdateBackStage(item);
                 UpdateAgedBrie(item);
                 UpdateConjured(item);
+                UpdateSulfuras(item);
             }
+        }
+        private void UpdateSulfuras(Item item)
+        {
         }
         private void UpdateConjured(Item item)
         {
@@ -47,7 +51,7 @@ namespace GildedRoseKata
         }
         private void EditSellInandQuality(Item item, int qualityValue)
         {
-            item.SellIn --;
+            item.SellIn--;
             if (qualityValue == 0)
                 item.Quality = 0;
             item.Quality += qualityValue;
@@ -63,7 +67,7 @@ namespace GildedRoseKata
             return 1;
         }
         private bool isConjured(Item item) => item.Name == CONJURED;
-        private bool isRegular(Item item) => !(isAgedBrie(item) || isBackStage(item) || isSulfuras(item));
+        private bool isRegular(Item item) => !(isAgedBrie(item) || isBackStage(item) || isSulfuras(item) || isConjured(item));
         private bool isSulfuras(Item item) => item.Name == SULFURAS;
         private bool isBackStage(Item item) => item.Name == BACKSTAGE_PASS;
         private bool isAgedBrie(Item item) => item.Name == AGED_BRIE;
